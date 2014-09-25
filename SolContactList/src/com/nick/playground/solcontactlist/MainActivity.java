@@ -87,13 +87,14 @@ public class MainActivity extends ActionBarActivity {
 				pDialog.setCancelable(true);
 				pDialog.show();
 			}else{
+				final List<Map<String, String>> contactsList = new ArrayList<Map<String,String>>();
 				for (Contact c :contacts) {			
 					Map<String, String> map = new HashMap<String, String>();
 					map.put("name", c.getName());
-					final List<Map<String, String>> contactsList = new ArrayList<Map<String,String>>();
+					
 					contactsList.add(map);
-					ImageView image = (ImageView) context.findViewById(R.id.thumb);
-					image.setImageURI(Uri.parse(c.getThumbUri()));
+//					ImageView image = (ImageView) context.findViewById(R.id.thumb);
+//					image.setImageURI(Uri.parse(c.getThumbUri()));
 					ListView contactsListView = (ListView) context.findViewById(R.id.list);
 					ListAdapter adapter = new SimpleAdapter(context,
 							contactsList, R.layout.contact_list_item, new String[] { 
